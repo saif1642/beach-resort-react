@@ -4,10 +4,11 @@ import { RoomContext } from '../context';
 export default class FeaturedRoom extends Component {
     static contextType = RoomContext;
     render() {
-        let value = this.context;
+        let { featuredRooms : rooms } = this.context;
+        console.log(rooms);
         return (
             <div>
-                <h1>Hello from FeaturedRoom {value}</h1>
+                <h1>Hello from FeaturedRoom </h1>
             </div>
         )
     }
