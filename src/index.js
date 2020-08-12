@@ -7,15 +7,12 @@ import { RoomProvider } from './context';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
-  <React.StrictMode>
     <RoomProvider>
       <Router>
         <App />
       </Router>
-    </RoomProvider>
-    
-  </React.StrictMode>,
-  document.getElementById('root')
+    </RoomProvider>,
+    document.getElementById('root')
 );
 
 // If you want your app to work offline and load faster, you can change
