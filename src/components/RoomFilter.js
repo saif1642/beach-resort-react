@@ -12,7 +12,8 @@ export const RoomFilter = ({ rooms }) => {
 
     let types = getUnique(rooms,'type');
     types = ['all',...types];
-
+    
+    let people = getUnique(rooms,'capacity');
     return (
         <div className="filter-container">
             <Title title="room search" />
@@ -28,6 +29,22 @@ export const RoomFilter = ({ rooms }) => {
                     >
                         {
                             types.map((item,index) => {
+                                return <option value={item} key={index}>{item}</option>
+                            })
+                        }
+                    </select>
+                </div>
+                <div className="form-group">
+                    <label htmlFor="capacity">Guests</label>
+                    <select 
+                        name="capacity" 
+                        id="capacity"
+                        value={capacity}
+                        className="form-control"
+                        onChange={handleChange}
+                    >
+                        {
+                            people.map((item,index) => {
                                 return <option value={item} key={index}>{item}</option>
                             })
                         }
