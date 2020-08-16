@@ -10,7 +10,7 @@ class RoomProvider extends Component {
         loading:true,
         type:'all',
         capacity:1,
-        price:0,
+        price:200,
         minPrice:0,
         maxPrice:0,
         minSize:0,
@@ -61,12 +61,14 @@ class RoomProvider extends Component {
         let { rooms, type, capacity, price, minSize, maxSize, breakfast, pets} = this.state;
         let tempRooms = [...rooms];
         if(type !== 'all'){
-            tempRooms = tempRooms.filter((item) => item.type === type)
+            tempRooms = tempRooms.filter((item) => item.type === type);
         }
 
         if(parseInt(capacity) !== 1){
-            tempRooms = tempRooms.filter((item) => item.capacity === parseInt(capacity))
+            tempRooms = tempRooms.filter((item) => item.capacity === parseInt(capacity));
         }
+
+        tempRooms = tempRooms.filter((item) => item.price <= parseInt(price));
 
         this.setState({
             sortedRooms:tempRooms

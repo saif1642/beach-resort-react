@@ -4,7 +4,7 @@ import { Title } from './Title';
 
 export const RoomFilter = ({ rooms }) => {
     const context = useContext(RoomContext);
-    const { handleChange, type, capacity, minPrice, maxPrice, minSize, maxSize} = context;
+    const { handleChange, type, capacity, price, minPrice, maxPrice, minSize, maxSize} = context;
 
     const getUnique = (items,value) => {
         return [...new Set(items.map(item => item[value]))];
@@ -49,6 +49,22 @@ export const RoomFilter = ({ rooms }) => {
                             })
                         }
                     </select>
+                </div>
+
+                <div className="form-group">
+                    <label htmlFor="price">
+                        room price is ${price}
+                    </label>
+                    <input 
+                        type="range" 
+                        name="price"
+                        id="price"
+                        min={minPrice}
+                        max={maxPrice}
+                        value={price}
+                        onChange={handleChange}
+                    />
+                    
                 </div>
             </form>
         </div>
